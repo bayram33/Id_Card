@@ -8,6 +8,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  int age = 23;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +73,23 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             const SizedBox(height: 20),
+            const Text(
+              "Age",
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2,
+              ),
+            ),
+            Text(
+              "$age",
+              style: TextStyle(
+                color: Colors.amberAccent[200],
+                letterSpacing: 2,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
@@ -85,6 +103,27 @@ class _HomepageState extends State<Homepage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                age = age - 1;
+              });
+            },
+            child: const Icon(Icons.exposure_minus_1),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                age=age+1;
+              });
+            },
+            child: const Icon(Icons.plus_one),
+          )
+        ],
       ),
     );
   }
